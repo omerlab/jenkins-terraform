@@ -3,7 +3,7 @@
  with your key name which  you have in given aws_region.
 */
 variable "aws_region" {
-  default = "us-east-2"
+  default = "us-east-1"
 }
 variable "vpc_cidr" {
   default = "172.0.0.0/24"
@@ -17,11 +17,11 @@ variable "availability_zones" {
   default = ["us-east-2a", "us-east-2b"]
 }
 variable "ubuntuami" {
-  default = "ami-08353a25e80beea3e"
+  default = "ami-08c40ec9ead489470"
 }
 variable "redhatami" {
-  default = "ami-008a8487adc2b32ec"
+  default = "ami-06640050dc3f556bb"
 }
 variable "key_name" {
-  default = "testkey"
+  default = "bricecicd"
 }
