@@ -14,7 +14,7 @@ variable "subnets_cidr" {
 }
 variable "availability_zones" {
   type    = list(string)
-  default = ["us-east-1a", "us-east-2b"]
+  default = ["us-east-1a", "us-east-1b"]
 }
 variable "ubuntuami" {
   default = "ami-08c40ec9ead489470"
