@@ -11,7 +11,7 @@ pipeline {
    stages{
         stage('Gitcheckout'){
             steps{
-           git 'https://github.com/omerlab/jk-tf.git'
+           git 'https://github.com/omerlab/jenkins-terraform'
          }
        }
         stage('TerraformInit'){
