@@ -1,0 +1,50 @@
+pipeline {
+    agent any
+    
+    tools {
+  terraform 'terraform-22'
+    }
+    environment {
+        AWS_DEFAULT_REGION="us-east-1"
+        THE_BUTLER_SAYS_SO=credentials('Brice-Aws-Cred')
+    }
+   stages{
+        stage('Gitcheckout'){
+            steps{
+           git 'https://github.com/omerlab/jk-tf.git'
+         }
+       }
+        stage('TerraformInit'){
+            steps{
+           sh 'terraform init'
+         }
+       }
+       stage('TerraformValidate'){
+           steps{
+           sh 'terraform validate'
+         }
+       }
+       stage('TerraformFormat'){
+           steps{
+           sh 'terraform fmt'
+           }
+       }
+        stage('TerraformPlan'){
+            steps{
+                   sh 'terraform plan'
+       }
+          
+         }
+       
+      /* stage('TerraformApply'){
+           steps{
+             sh 'terraform apply --auto-approve'
+         }
+       } */
+       stage('TerraformDestroy'){
+           steps{
+              sh 'terraform destroy --auto-approve'
+         }
+       }
+   }
+} 
